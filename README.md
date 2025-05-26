@@ -1,4 +1,4 @@
-# 🐍 Answers to the objectives of the Python Generation: A Course for Beginners course
+# 🐍 Answers to the Python Generation course tasks: a beginner's course
 
 ## Purpose  
 This repository contains solutions to problems from the course ‘Generation Python: A Course for Beginners’ (Stepik).  
