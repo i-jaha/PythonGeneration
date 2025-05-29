@@ -20,5 +20,34 @@
 текущем весе Гвидо и цели по весу на текущий день в формате:
     #<номер дня> ДЕНЬ: ТЕКУЩИЙ ВЕС = <текущий вес Гвидо> кг, ЦЕЛЬ по ВЕСУ = <цель по весу на текущий день> кг
 В 1-й день похудения Гвидо уже должен похудеть (см. 1 тест).
+На вход программе подаются два числа (каждое на отдельной строке): 
+номер дня похудения (целое число) и текущий вес Гвидо (действительное число).
+Программа должна вывести текст в соответствии с условием задачи.
 '''
 
+# example
+a, b = int(input()), float(input())
+if b <= 88:
+    print("Все идет по плану")
+    print(a, "ДЕНЬ: ТЕКУЩИЙ ВЕС =", b, "кг, ЦЕЛЬ по ВЕСУ =", 88, "кг")
+elif b > 88:
+    print("Что-то пошло не так")
+    print(a, "ДЕНЬ: ТЕКУЩИЙ ВЕС =", b, "кг, ЦЕЛЬ по ВЕСУ =", 88, "кг")
+
+# review
+prime_weight = 100
+target_weight = 88
+all_days = 60
+
+day = int(input())
+current_weight = float(input())
+
+weight_diff = prime_weight - target_weight
+weight_per_day = weight_diff / all_days
+current_target_weight = current_weight - weight_per_day * day
+
+if current_weight <= current_target_weight:
+    print('Все идет по плану')
+else:
+    print('Что-то пошло не так')
+print(f'#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {current_weight} кг, ЦЕЛЬ по ВЕСУ = {current_target_weight:.1f} кг')
