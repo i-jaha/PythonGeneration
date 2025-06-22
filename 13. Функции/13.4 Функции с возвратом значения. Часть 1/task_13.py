@@ -24,9 +24,9 @@ def quick_merge(list1, list2):
             result.append(list2[p2])
             p2 += 1
 
-    if p1 < len(list1):   # прицепление остатка
+    if p1 < len(list1):
         result += list1[p1:]
-    else:                 # иначе прицепляем остаток другого списка
+    else:
         result += list2[p2:]
     
     return result
