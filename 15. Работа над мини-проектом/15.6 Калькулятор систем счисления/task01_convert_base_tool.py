@@ -132,9 +132,9 @@ def from_decimal(number, base):
         number //= base
     return result
 
-from_base = int(input("Из какой системы (2, 8, 10, 16): "))
-to_base = int(input("В какую систему (2, 8, 10, 16): "))
-number = input("Введите число: ")
+from_base = int(input("From which number system (2, 8, 10, 16): "))
+to_base = int(input("To which number system (2, 8, 10, 16): "))
+number = input("Enter the number: ")
 
 if from_base == 10:
     decimal_num = int(number)
@@ -146,4 +146,4 @@ if to_base == 10:
 else:
     result = from_decimal(decimal_num, to_base)
 
-print(f'Результат: {result}')
+print(f'Result: {result}')

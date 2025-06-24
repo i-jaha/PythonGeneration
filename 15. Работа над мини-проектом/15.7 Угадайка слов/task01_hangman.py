@@ -94,16 +94,16 @@ word_list = []
 def get_words():
     while True:
         try:
-            count = int(input('Сколько слов вы хотите ввести? '))
+            count = int(input('How many words do you want to enter? '))
             break
         except ValueError:
-            print('Пожалуйста, введите число!')
+            print('Please enter a integer!')
     
     for i in range(count):
-        word = input(f'Введите слово {i+1}: ').strip().upper()
+        word = input(f'Enter word {i+1}: ').strip().upper()
         if word and word not in word_list:
             word_list.append(word)
-    print(f'Добавлено {len(word_list)} слов в игру!')
+    print(f'{len(word_list)} words have been added to the game!')
 
 def get_word():
     if not word_list:
@@ -257,14 +257,12 @@ def display_hangman(tries, extended=False):
     print(stages[tries])
 
 def play(word):
-    # Выбор режима игры
-    mode = input('Выберите режим (1-обычный, 2-с подсказками, 3-расширенный): ')
+    mode = input('Choose a mode (1 - normal, 2 - with hints, 3 - advanced): ')
     
     show_hints = mode == '2'
     extended_mode = mode == '3'
     tries = 7 if extended_mode else 6
     
-    # Инициализация word_completion
     if show_hints and len(word) > 2:
         word_completion = word[0] + '_' * (len(word) - 2) + word[-1]
         guessed_letters = [word[0], word[-1]]
@@ -275,20 +273,20 @@ def play(word):
     guessed = False
     guessed_words = []
     
-    print('Давайте играть в угадайку слов!')
+    print("Let's play a word guessing game!")
     display_hangman(tries, extended_mode)
     print(word_completion)
     
     while not guessed and tries > 0:
-        guess = input('Введите букву или слово: ').upper()
+        guess = input('Enter a letter or word: ').upper()
         
         if not guess.isalpha():
-            print('Пожалуйста, введите только буквы!')
+            print('Please enter letters only!')
             continue
             
         if len(guess) == 1:
             if guess in guessed_letters:
-                print('Вы уже называли эту букву!')
+                print('You have already guessed this letter!')
                 continue
             guessed_letters.append(guess)
             
@@ -300,7 +298,7 @@ def play(word):
                 tries -= 1
         else:
             if guess in guessed_words:
-                print('Вы уже называли это слово!')
+                print('You have already guessed this word!')
                 continue
             guessed_words.append(guess)
             
@@ -316,37 +314,37 @@ def play(word):
     
     if guessed:
         print('''
-        🎉 ПОБЕДА! 🎉
+        🎉 VICTORY! 🎉
         
            😄
           /|\\  
           / \\  
         =========
         ''')
-        print('Поздравляем, вы угадали слово! Вы победили!')
+        print("Congratulations, you guessed the word! You won!")
     else:
-        print(f'Вы проиграли! Загаданное слово: {word}')
+        print(f"You lost! The hidden word was: {word}")
 
 def main():
     get_words()
     
     while True:
         word = get_word()
-        print(f'\nОсталось слов: {len(word_list)}')
+        print(f'\nWords left: {len(word_list)}')
         play(word)
         
-        continue_game = input('\nПродолжить игру? (да/нет): ').lower()
+        continue_game = input('\nContinue the game? (yes/no): ').lower()
         if continue_game not in ['да', 'д', 'yes', 'y']:
             break
             
         if not word_list:
-            new_game = input('\nСлова закончились! Хотите начать новую игру? (да/нет): ').lower()
+            new_game = input('\nThe words have run out! Would you like to start a new game? (yes/no): ').lower()
             if new_game in ['да', 'д', 'yes', 'y']:
                 get_words()
             else:
                 break
     
-    print('Спасибо за игру!')
+    print('Thank you for playing!')
 
 if __name__ == "__main__":
     main()
