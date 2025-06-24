@@ -88,11 +88,8 @@ k — ключ.
     Условный оператор (if/elif/else);
     Цикл for/while;
     Строковые методы.
-
-
 '''
 
-# Алфавиты
 RUSSIAN_ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'  # 32 буквы без ё
 ENGLISH_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -110,29 +107,28 @@ def caesar_cipher(text, shift, alphabet, decrypt=False):
             result += char
     return result
 
-# Основная программа
-print("Программа шифрования Цезаря")
-print("Выберите направление:")
-print("1 - Шифрование")
-print("2 - Дешифрование")
-print("3 - Дешифрование без знания сдвига")
-direction = int(input("Введите номер: "))
+print("Caesar Cipher Program")
+print("Choose an option:")
+print("1 - Encryption")
+print("2 - Decryption")
+print("3 - Decryption without knowing the shift")
+direction = int(input("Enter the number: "))
 
-print("Выберите язык:")
-print("1 - Русский")
-print("2 - Английский")
-language = int(input("Введите номер: "))
+print("Choose language:")
+print("1 - Russian")
+print("2 - English")
+language = int(input("Enter the number: "))
 
 alphabet = RUSSIAN_ALPHABET if language == 1 else ENGLISH_ALPHABET
 
 if direction == 3:
-    text = input("Введите зашифрованный текст: ")
-    print("Все возможные варианты дешифрования:")
+    text = input("Enter the encrypted text: ")
+    print("All possible decryption options:")
     for shift in range(1, len(alphabet)):
         result = caesar_cipher(text, shift, alphabet, True)
-        print(f"Сдвиг {shift:2d}: {result}")
+        print(f"Shift {shift:2d}: {result}")
 else:
-    shift = int(input("Введите шаг сдвига: "))
-    text = input("Введите текст: ")
+    shift = int(input("Enter the shift step: "))
+    text = input("Enter text: ")
     result = caesar_cipher(text, shift, alphabet, direction == 2)
-    print(f"Результат: {result}")
+    print(f"Result: {result}")
