@@ -1,53 +1,52 @@
 '''
-Генератор безопасных паролей
-Описание проекта: 
-программа генерирует заданное количество паролей 
-и включает в себя умную настройку на длину пароля, 
-а также на то, какие символы требуется в него включить, 
-а какие исключить.
+Secure Password Generator
+Project Description:
+The program generates a specified number of passwords 
+and includes smart settings for password length, 
+as well as options to include certain characters and exclude others.
 
-Составляющие проекта:
-    Целые числа (тип int);
-    Переменные;
-    Ввод / вывод данных (функции input() и print());
-    Условный оператор (if/elif/else);
-    Цикл for;
-    Написание пользовательских функций;
-    Работа с модулем random для генерации случайных чисел.
+Project components:
+    Integers (int type);
+    Variables;
+    Data input/output (input() and print() functions);
+    Conditional operator (if/elif/else);
+    For loop;
+    Writing custom functions;
+    Working with the random module to generate random numbers.
 
-Заголовок программы
-Подключите модуль random;
-Создайте строковые константы:
+Program Title
+Connect the random module;
+Create string constants:
     digits: 0123456789;
     lowercase_letters: abcdefghijklmnopqrstuvwxyz;
     uppercase_letters: ABCDEFGHIJKLMNOPQRSTUVWXYZ;
     punctuation: !#$%&*+-=?@^_.
-Создайте переменную chars = '', 
-которая будет содержать все символы, 
-которые могут быть в генерируемом пароле.
+Create a variable chars = '',
+which will contain all characters
+that may be present in the generated password.
 
-Считывание пользовательских данных
-Программа должна запрашивать у пользователя следующую информацию:
-    Количество паролей для генерации;
-    Длину одного пароля;
-    Включать ли цифры 0123456789?
-    Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ?
-    Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz?
-    Включать ли символы !#$%&*+-=?@^_?
-    Исключать ли неоднозначные символы il1Lo0O?
+User data input
+The program should request the following information from the user:
+    The number of passwords to generate;
+    The length of one password;
+    Should digits 0123456789 be included?
+    Should uppercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ be included?
+    Should lowercase letters abcdefghijklmnopqrstuvwxyz be included?
+    Should symbols !#$%&*+-=?@^_ be included?
+    Should ambiguous characters il1Lo0O be excluded?
 
-Настройка генерируемых паролей
-На основании введенной пользователем информации, 
-сформируйте переменную chars, содержащую все символы, 
-которые могут быть в генерируемом пароле.
+Password Generation Settings
+Based on the information entered by the user,
+create a variable "chars" containing all the characters
+that can be included in the generated password.
 
-Генерации пароля
-Напишите функцию generate_password(), 
-которая принимает два аргумента:
-    length: длину пароля;
-    chars: алфавит из символов которого состоит пароль;
-и возвращает пароль.
-Используя цикл for, сгенерируйте необходимое количество паролей.
+Password Generation
+Write a function generate_password()
+that takes two arguments:
+    length: the length of the password;
+    chars: the alphabet (set of characters) from which the password is made;
+and returns a password.
+Using a for loop, generate the required number of passwords.
 '''
 
 import random
@@ -59,13 +58,13 @@ punctuation = '!#$%&*+-=?@^_.'
 
 chars = ''
 
-count = int(input('Количество паролей для генерации: '))
-length = int(input('Длина одного пароля: '))
-use_digits = input('Включать ли цифры 0123456789? (y/n): ').lower() == 'y'
-use_uppercase = input('Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ? (y/n): ').lower() == 'y'
-use_lowercase = input('Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz? (y/n): ').lower() == 'y'
-use_punctuation = input('Включать ли символы !#$%&*+-=?@^_? (y/n): ').lower() == 'y'
-exclude_ambiguous = input('Исключать ли неоднозначные символы il1Lo0O? (y/n): ').lower() == 'y'
+count = int(input('Number of passwords to generate: '))
+length = int(input('Length of one password: '))
+use_digits = input('Include digits 0123456789? (y/n): ').lower() == 'y'
+use_uppercase = input('Include uppercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ? (y/n): ').lower() == 'y'
+use_lowercase = input('Include lowercase letters abcdefghijklmnopqrstuvwxyz? (y/n): ').lower() == 'y'
+use_punctuation = input('Include the characters !#$%&*+-=?@^_? (y/n): ').lower() == 'y'
+exclude_ambiguous = input('Exclude ambiguous characters il1Lo0O? (y/n): ').lower() == 'y'
 
 if use_digits:
     chars += digits
